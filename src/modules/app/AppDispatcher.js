@@ -1,27 +1,23 @@
-var _ = require('lodash');
-var Dispatcher = require('flux').Dispatcher;
+import _ from 'lodash';
+import Flux from 'flux';
 
-
-function AppDispatcher () {
-}
-
-_.extend(AppDispatcher.prototype, Dispatcher.prototype, {
-  handleServerAction: function(action) {
+class AppDispatcher extends Flux.Dispatcher {
+  handleServerAction(action) {
     var payload = {
       source: PayloadSources.SERVER_ACTION,
       action: action
     };
     this.dispatch(payload);
-  },
+  }
 
-  handleViewAction: function(action) {
+  handleViewAction(action) {
     var payload = {
       source: PayloadSources.VIEW_ACTION,
       action: action
     };
     this.dispatch(payload);
   }
-});
+}
 
-module.exports = AppDispatcher;
+export default AppDispatcher;
 

@@ -1,9 +1,11 @@
 'use strict';
 
-var angular = require('angular');
+import angular from 'angular';
 
-require('angular-animate');
-require('angular-ui-router');
+import 'angular-animate';
+import 'angular-ui-router';
+
+import choices from './choices/choicesDirective';
 
 var m = angular.module('app.client', [
   'ngAnimate',
@@ -18,6 +20,6 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.directive('choices', require('./choices/choicesDirective'));
+m.directive('choices', choices);
 
-module.exports = m;
+export default m;

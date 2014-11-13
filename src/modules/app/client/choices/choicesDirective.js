@@ -1,16 +1,18 @@
 'use strict';
 
-function ChoicesCtrl() {
-  this.choices = [
-    { text: 'Hello World!' }
-  ];
+class ChoicesCtrl {
+  constructor() {
+    this.choices = [
+      { text: 'Hello World!' }
+    ];
+  }
 }
 
-module.exports = function() {
+export default function() {
   return {
     templateUrl: 'app/client/choices/choices.html',
     controller: ChoicesCtrl,
     controllerAs: 'choices',
     bindToController: true
   };
-};
+}

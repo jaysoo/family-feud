@@ -1,9 +1,7 @@
 'use strict';
 
-var d = require('./choicesDirective');
-
-describe('d', function() {
-  it('should equal fixture contents', function() {
+describe('foo', function() {
+  it('should do stuff', function() {
     expect(true).toBe(true);
   });
 });

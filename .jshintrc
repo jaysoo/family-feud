@@ -1,6 +1,14 @@
 {
     "node": true,
     "browser": true,
+    "esnext": true,
     "globals": {
+      "it": false,
+      "xit": false,
+      "iit": false,
+      "describe": false,
+      "idescribe": false,
+      "xdescribe": false,
+      "expect": false
     }
 }
