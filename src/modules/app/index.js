@@ -1,11 +1,12 @@
 'use strict';
 
-var angular = require('angular');
+import angular from 'angular';
+import client from './client';
+import templates from '../../../tmp/templates';
 
 var m = angular.module('app', [
-  require('../../../tmp/templates').name,
-
-  require('./client').name
+  templates.name,
+  client.name
 ]);
 
-module.exports = m;
+export default m;

@@ -1,8 +1,6 @@
-'use strict';
+import { EventEmitter } from 'events';
 
-var EventEmitter = require('events').EventEmitter;
-
-function QuestionStore(config) {
+class QuestionStore extends EventEmitter {
 }
 
-module.exports = QuestionStore;
+export default QuestionStore;

@@ -4,13 +4,17 @@ var gulp = require('gulp');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var browserifyShim = require('browserify-shim');
+var es6ify = require('es6ify');
+
 
 module.exports = gulp.task('watchify', function () {
-  var bundler = watchify({
-    entries: [config.paths.src.modules]
-  });
+  var bundler = watchify(es6ify.runtime, { entry: true })
 
-  
+  bundler.add([config.paths.src.modules]);
+
+  bundler.add(es6ify.runtime);
+  bundler.transform(es6ify.configure(/^(?!.*node_modules)+.+\.js$/));
+
   bundler.transform(browserifyShim);
 
   bundler.on('update', rebundle);
