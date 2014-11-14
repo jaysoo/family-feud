@@ -1,18 +1,19 @@
 'use strict';
 
 class ChoicesCtrl {
-  constructor() {
-    this.choices = [
-      { text: 'Hello World!' }
-    ];
+  constructor(choiceStore) {
+    this.store = choiceStore;
+    this.store.addChangeListener(() => this.updateChoices());
+  }
+
+  updateChoices() {
+    this.choices = this.store.getAll();
   }
 }
 
-export default function() {
-  return {
-    templateUrl: 'app/client/choices/choices.html',
-    controller: ChoicesCtrl,
-    controllerAs: 'choices',
-    bindToController: true
-  };
-}
+export default {
+  templateUrl: 'app/client/choices/choices.html',
+  controller: ChoicesCtrl,
+  controllerAs: 'choices',
+  bindToController: true
+};

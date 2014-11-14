@@ -20,6 +20,6 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.directive('choices', choices);
+m.directive('choices', () => choices);
 
 export default m;
