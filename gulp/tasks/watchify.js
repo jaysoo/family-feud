@@ -5,10 +5,12 @@ var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var browserifyShim = require('browserify-shim');
 var es6ify = require('es6ify');
+var ngAnnotate = require('gulp-ng-annotate');
 
+var config = global.config;
 
 module.exports = gulp.task('watchify', function () {
-  var bundler = watchify(es6ify.runtime, { entry: true })
+  var bundler = watchify(es6ify.runtime, { entry: true });
 
   bundler.add([config.paths.src.modules]);
 
