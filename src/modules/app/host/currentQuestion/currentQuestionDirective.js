@@ -1,14 +1,15 @@
 import angular from 'angular';
 
 class CurrentQuestionCtrl {
-  constructor(questionStore, hostActionCreators) {
-    this.store = questionStore;
+  constructor(currentQuestionStore, hostActionCreators) {
+    this.store = currentQuestionStore;
     this.store.addChangeListener(() => this.loadQuestion());
     this.hostActionCreators = hostActionCreators;
   }
 
   loadQuestion() {
     this.question = this.store.getCurrent();
+    console.log(this.question);
   }
 
   title() {

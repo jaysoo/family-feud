@@ -44,10 +44,11 @@ m.service('teamStore', TeamStore);
 m.factory('firebaseRef', (appConfig) => new Firebase(appConfig.firebaseUrl));
 m.service('firebaseApiUtils', FirebaseApiUtils);
 
-// Temp code to load questions
+// TODO: move this to route controller.
 m.run((firebaseApiUtils) => {
   firebaseApiUtils.watchQuestions();
   firebaseApiUtils.watchTeamInfo();
+  firebaseApiUtils.watchCurrentQuestion();
 });
 
 export default m;
