@@ -1,10 +1,10 @@
 import angular from 'angular';
 
 class CurrentQuestionCtrl {
-  constructor(questionStore, choiceActionCreators) {
+  constructor(questionStore, hostActionCreators) {
     this.store = questionStore;
     this.store.addChangeListener(() => this.loadQuestion());
-    this.choiceActionCreators = choiceActionCreators;
+    this.hostActionCreators = hostActionCreators;
   }
 
   loadQuestion() {
@@ -27,7 +27,7 @@ class CurrentQuestionCtrl {
 
   handleClick(choice) {
     console.log("%cClicked on %s", "color:darkorange", choice.text);
-    this.choiceActionCreators.clickChoice(choice);
+    this.hostActionCreators.clickChoice(choice);
   }
 }
 

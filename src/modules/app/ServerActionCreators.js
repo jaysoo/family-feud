@@ -11,6 +11,13 @@ class RemoteActionCreators {
       rawQuestions: rawQuestions
     });
   }
+
+  receiveCurrentQuestion(questionId) {
+    this.dispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_CURRENT_QUESTION,
+      questionId: questionId
+    });
+  }
 }
 
 export default RemoteActionCreators;

@@ -5,7 +5,7 @@ import angular from 'angular';
 import 'angular-animate';
 import 'angular-ui-router';
 
-import ChoiceActionCreators from './ChoiceActionCreators';
+import HostActionCreators from './HostActionCreators';
 import QuestionActionCreators from './QuestionActionCreators';
 
 import currentQuestionDirective from './currentQuestion/currentQuestionDirective';
@@ -24,7 +24,7 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.service('choiceActionCreators', ChoiceActionCreators);
+m.service('hostActionCreators', HostActionCreators);
 m.service('questionActionCreators', QuestionActionCreators);
 
 m.directive('currentQuestion', () => currentQuestionDirective);

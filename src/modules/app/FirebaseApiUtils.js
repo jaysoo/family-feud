@@ -23,6 +23,30 @@ class FirebaseApiUtils {
   unwatchQuestions() {
     this.ref.child('questions').off('value');
   }
+
+  watchCurrentQuestion() {
+    this.ref.child('currentQuestion').on('value', (snapshot) => {
+      var questionId = snapshot.val();
+
+      console.log('%cReceived current question', 'color:blue');
+
+      if (questionId) {
+        // Let's Angular react to the change.
+        this.timeout(() =>{
+          this.actionCreators.receiveCurrentQuestion(questionId);
+        }, 0);
+      }
+    });
+  }
+
+  unwatchCurrentQuestion() {
+    this.ref.child('currentQuestion').off('value');
+  }
+
+  setCurrentQuestion(question) {
+    console.log('%cSet current question %s', 'color:blue', question.title);
+    this.ref.child('currentQuestion').set(question.id);
+  }
 }
 
 export default FirebaseApiUtils;
