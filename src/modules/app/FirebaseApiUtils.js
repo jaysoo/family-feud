@@ -9,8 +9,7 @@ class FirebaseApiUtils {
     this.ref.child('questions').on('value', (snapshot) => {
       var rawData = snapshot.val();
 
-      console.log('%cReceived raw questions', 'font-weight:bold');
-      console.log(rawData);
+      console.log('%cReceived raw questions', 'color:blue');
 
       if (rawData) {
         // Let's Angular react to the change.
