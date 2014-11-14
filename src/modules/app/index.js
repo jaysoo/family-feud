@@ -6,7 +6,9 @@ import Firebase from 'firebase';
 import templates from '../../../tmp/templates';
 
 import QuestionStore from './game/QuestionStore';
+import CurrentQuestionStore from './game/CurrentQuestionStore';
 import ChoiceStore from './game/ChoiceStore';
+
 import AppDispatcher from './AppDispatcher';
 import FirebaseApiUtils from './FirebaseApiUtils.js';
 import ServerActionCreators from './ServerActionCreators';
@@ -33,6 +35,7 @@ m.service('dispatcher', AppDispatcher);
 
 // Stores ---------------------------------------------------------------------
 m.service('questionStore', QuestionStore);
+m.service('currentQuestionStore', CurrentQuestionStore);
 m.service('choiceStore', ChoiceStore);
 
 // Firebase config ------------------------------------------------------------
