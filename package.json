@@ -36,7 +36,8 @@
     "gulp-header": "~1.2.2",
     "traceur": "0.0.74",
     "shrinkwrap": "~0.4.0",
-    "esprima": "~1.2.2"
+    "esprima": "~1.2.2",
+    "gulp-sass": "~1.1.0"
   },
   "browser": {
     "angular": "./node_modules/angular/angular.js",

@@ -2,6 +2,7 @@ global.SRC_FOLDER = 'src';
 global.BUILD_FOLDER = 'build';
 global.RELEASE_FOLDER = 'release';
 global.TMP_FOLDER = 'tmp';
+global.BOWER_FOLDER = 'bower_components';
 
 global.config = {
   paths: {
@@ -10,8 +11,8 @@ global.config = {
       assets: [SRC_FOLDER + '/assets/**/*', '!' + SRC_FOLDER + '/assets/images/**/*'],
       images: SRC_FOLDER + '/assets/images/**/*',
       scripts: SRC_FOLDER + '/modules/**/*.js',
-      styles: SRC_FOLDER + '/styles/app.css',
-      stylesGlob: SRC_FOLDER + '/styles/**/*.css',
+      styles: SRC_FOLDER + '/styles/app.scss',
+      stylesGlob: SRC_FOLDER + '/styles/**/*.scss',
       templates: SRC_FOLDER + '/modules/**/*.html',
       templatesHTML: SRC_FOLDER + '/modules/**/*.html',
       templatesCompiled: TMP_FOLDER,
@@ -22,6 +23,7 @@ global.config = {
       build: {
         styles: BUILD_FOLDER,
         scripts: BUILD_FOLDER,
+        fonts: BUILD_FOLDER + '/assets/fonts',
         images: BUILD_FOLDER + '/assets/images',
         assets: BUILD_FOLDER + '/assets',
         index: BUILD_FOLDER,
@@ -30,6 +32,7 @@ global.config = {
       release: {
         styles: RELEASE_FOLDER,
         scripts: RELEASE_FOLDER,
+        fonts: RELEASE_FOLDER + '/assets/fonts',
         images: RELEASE_FOLDER + '/assets/images',
         assets: RELEASE_FOLDER + '/assets',
         index: RELEASE_FOLDER,
