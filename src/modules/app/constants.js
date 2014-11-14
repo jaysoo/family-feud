@@ -1,6 +1,5 @@
 export var ActionTypes = {
-  RECEIVE_QUESTIONS: 'RECEIVE_QUESTIONS',
-  RECEIVE_CHOICES: 'RECEIVE_CHOICES'
+  RECEIVE_RAW_QUESTIONS: 'RECEIVE_RAW_QUESTIONS'
 };
 
 export var PayloadSources = {

@@ -26,7 +26,7 @@ m.service('choiceStore', ChoiceStore);
 m.run(($timeout, dispatcher) => {
   $timeout(() => {
     dispatcher.handleServerAction({
-      type: 'RECEIVE_QUESTIONS',
+      type: 'RECEIVE_RAW_QUESTIONS',
       questions: [
         {
           title: 'Foo bar?',

@@ -22,7 +22,7 @@ describe('QuestionStore', () => {
       });
 
       dispatcher.handleServerAction({
-        type: 'RECEIVE_QUESTIONS',
+        type: 'RECEIVE_RAW_QUESTIONS',
         questions: questions
       });
     });
