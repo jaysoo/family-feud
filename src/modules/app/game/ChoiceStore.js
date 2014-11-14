@@ -6,22 +6,23 @@ import { ActionTypes } from '../constants';
 var CHANGE_EVENT = 'change';
 
 class ChoiceStore extends EventEmitter {
-  constructor(dispatcher, questionStore) {
+  constructor(dispatcher, currentQuestionStore) {
     super();
 
     this._rooms = [];
 
-    this.questionStore = questionStore;
+    this.currentQuestionStore = currentQuestionStore;
 
     this.dispatchToken = dispatcher.register((payload) => {
       dispatcher.waitFor([
-        questionStore.dispatchToken
+        currentQuestionStore.dispatchToken
       ]);
 
       var action = payload.action;
 
       switch(action.type) {
         case ActionTypes.RECEIVE_RAW_QUESTIONS:
+        case ActionTypes.RECEIVE_CURRENT_QUESTION:
           this.emitChange();
           break;
 
@@ -43,7 +44,7 @@ class ChoiceStore extends EventEmitter {
   }
 
   getAll() {
-    return this.questionStore.getCurrent().choices;
+    return this.currentQuestionStore.getCurrent().choices;
   }
 }
 
