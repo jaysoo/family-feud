@@ -5,7 +5,7 @@ import { ActionTypes } from '../constants';
 
 var CHANGE_EVENT = 'change';
 
-class QuestonStore extends EventEmitter {
+class QuestionStore extends EventEmitter {
   constructor(dispatcher) {
     super();
 
@@ -51,4 +51,4 @@ class QuestonStore extends EventEmitter {
   }
 }
 
-export default QuestonStore;
+export default QuestionStore;
