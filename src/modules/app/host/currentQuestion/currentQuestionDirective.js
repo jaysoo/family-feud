@@ -30,6 +30,10 @@ class CurrentQuestionCtrl {
     console.log("%cClicked on %s", "color:darkorange", choice.text);
     this.hostActionCreators.setAsRevealed(choice);
   }
+
+  reset() {
+    this.hostActionCreators.resetRevealedChoices();
+  }
 }
 
 export default {

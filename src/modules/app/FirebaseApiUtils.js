@@ -84,12 +84,10 @@ class FirebaseApiUtils {
 
       console.log('%cReceived revealed choices', 'color:blue');
 
-      if (data) {
-        // Let's Angular react to the change.
-        this.timeout(() =>{
-          this.actionCreators.receiveRevealedChoices(data);
-        }, 0);
-      }
+      // Let's Angular react to the change.
+      this.timeout(() =>{
+        this.actionCreators.receiveRevealedChoices(data);
+      }, 0);
     });
   }
 
@@ -102,7 +100,7 @@ class FirebaseApiUtils {
     this.ref.child('revealedChoices').child(choice.id).set(true);
   }
 
-  resetsetRevealedChoices() {
+  resetRevealedChoices() {
     console.log('%cReset revealed choices', 'color:blue');
     this.ref.child('revealedChoices').set(null);
   }
