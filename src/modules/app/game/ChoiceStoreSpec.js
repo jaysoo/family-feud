@@ -3,28 +3,29 @@ import ChoiceStore from './ChoiceStore';
 
 describe('ChoiceStore', () => {
   var dispatcher = new AppDispatcher();
-  var choices, store;
+  var choices, choiceStore, questionStore;
 
   beforeEach(() => {
-    store = new ChoiceStore(dispatcher);
+    questionStore = jasmine.createSpyObj('questionStore', ['getAll', 'getCurrent']);
+    questionStore.getCurrent.and.returnValue({
+      title: 'What is the air-speed velocity of an unladen swallow?',
+      choices: [
+        { text: '15 km/h', points: 4 },
+        { text: '60 km/h', points: 6 },
+        { text: 'European or African?', points: 90 }
+      ]
+    });
 
-    choices = [
-      {id: 1, name: 'Foo'},
-      {id: 2, name: 'Bar'}
-    ];
+    choiceStore = new ChoiceStore(dispatcher, questionStore);
   });
 
-  describe('receiving choices', () => {
-    it('loads all choices', (done) => {
-      store.addChangeListener(() => {
-        expect(store.getAll()).toEqual(choices);
-        done();
-      });
-
-      dispatcher.handleServerAction({
-        type: 'RECEIVE_CHOICES',
-        choices: choices
-      });
+  describe('getAll', () => {
+    it('returns choices from current question', () => {
+      expect(choiceStore.getAll()).toEqual([
+        { text: '15 km/h', points: 4 },
+        { text: '60 km/h', points: 6 },
+        { text: 'European or African?', points: 90 }
+      ]);
     });
   });
 });
