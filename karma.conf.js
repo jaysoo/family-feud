@@ -16,7 +16,7 @@ module.exports = function(config) {
 
     browserify: {
       debug: true,
-      transform: ['es6ify', 'brfs']
+      transform: ['es6ify']
     },
 
     reporters: ['progress'],
