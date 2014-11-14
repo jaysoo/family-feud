@@ -16,7 +16,7 @@
     "gulp-jshint": "^1.6.2",
     "gulp-livereload": "^2.1.0",
     "gulp-minify-html": "^0.1.4",
-    "gulp-ng-annotate": "^0.1.1",
+    "gulp-ng-annotate": "~0.3.5",
     "gulp-replace": "^0.4.0",
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.0",
@@ -31,11 +31,12 @@
     "karma-jasmine": "~0.2.3",
     "karma-chrome-launcher": "^0.1.5",
     "karma-browserify": "^1.0.0",
-    "brfs": "^1.2.0",
     "browserify": "~6.3.2",
     "es6ify": "~1.5.1",
     "gulp-header": "~1.2.2",
-    "traceur": "0.0.74"
+    "traceur": "0.0.74",
+    "shrinkwrap": "~0.4.0",
+    "esprima": "~1.2.2"
   },
   "browser": {
     "angular": "./node_modules/angular/angular.js",
