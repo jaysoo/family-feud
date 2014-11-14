@@ -1,3 +1,5 @@
+import { ActionTypes } from './constants';
+
 class RemoteActionCreators {
   constructor(dispatcher) {
     this.dispatcher = dispatcher;

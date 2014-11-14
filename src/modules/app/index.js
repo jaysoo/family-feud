@@ -1,12 +1,15 @@
 'use strict';
 
 import angular from 'angular';
+import Firebase from 'firebase';
 
 import templates from '../../../tmp/templates';
 
 import QuestionStore from './game/QuestionStore';
 import ChoiceStore from './game/ChoiceStore';
 import AppDispatcher from './AppDispatcher';
+import FirebaseApiUtils from './FirebaseApiUtils.js';
+import ServerActionCreators from './ServerActionCreators';
 
 import client from './client';
 
@@ -15,6 +18,14 @@ var m = angular.module('app', [
   client.name
 ]);
 
+// Config ---------------------------------------------------------------------
+m.value('appConfig', {
+  firebaseUrl: 'https://family-feud.firebaseio.com'
+});
+
+// Actions --------------------------------------------------------------------
+m.service('serverActionCreators', ServerActionCreators);
+
 // Dispatcher -----------------------------------------------------------------
 m.service('dispatcher', AppDispatcher);
 
@@ -22,25 +33,13 @@ m.service('dispatcher', AppDispatcher);
 m.service('questionStore', QuestionStore);
 m.service('choiceStore', ChoiceStore);
 
+// Firebase config ------------------------------------------------------------
+m.factory('firebaseRef', (appConfig) => new Firebase(appConfig.firebaseUrl));
+m.service('firebaseApiUtils', FirebaseApiUtils);
+
 // Temp code to load questions
-m.run(($timeout, dispatcher) => {
-  $timeout(() => {
-    dispatcher.handleServerAction({
-      type: 'RECEIVE_RAW_QUESTIONS',
-      questions: [
-        {
-          title: 'Foo bar?',
-          choices: [
-            {text: 'A', points: 50},
-            {text: 'B', points: 30},
-            {text: 'C', points: 10},
-            {text: 'D', points: 5},
-            {text: 'E', points: 5}
-          ]
-        }
-      ]
-    });
-  });
+m.run((firebaseApiUtils) => {
+  firebaseApiUtils.watchQuestions();
 });
 
 export default m;

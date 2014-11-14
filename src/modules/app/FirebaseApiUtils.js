@@ -1,13 +1,28 @@
 class FirebaseApiUtils {
-  constructor(firebaseRef, serverActionCreators) {
+  constructor(firebaseRef, serverActionCreators, $timeout) {
     this.ref = firebaseRef;
     this.actionCreators = serverActionCreators;
+    this.timeout = $timeout;
   }
 
-  getAllQuestions() {
+  watchQuestions() {
     this.ref.child('questions').on('value', (snapshot) => {
-      this.actionCreators.receiveAll(snapshot.val());
+      var rawData = snapshot.val();
+
+      console.log('%cReceived raw questions', 'font-weight:bold');
+      console.log(rawData);
+
+      if (rawData) {
+        // Let's Angular react to the change.
+        this.timeout(() =>{
+          this.actionCreators.receiveAll(rawData);
+        }, 0);
+      }
     });
+  }
+
+  unwatchQuestions() {
+    this.ref.child('questions').off('value');
   }
 }
 

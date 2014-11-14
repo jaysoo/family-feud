@@ -1,7 +1,7 @@
 import FirebaseApiUtils from './FirebaseApiUtils';
 
 describe('FirebaseApiUtils', () => {
-  var utils, ref, actionCreators, snapshot;
+  var utils, ref, actionCreators, snapshot, timeout;
 
   beforeEach(() => {
     var childRef = {
@@ -10,6 +10,8 @@ describe('FirebaseApiUtils', () => {
       }
     };
 
+    timeout = (cb) => cb();
+
     snapshot = jasmine.createSpyObj('snapshot', ['val']);
 
     ref = jasmine.createSpyObj('ref', ['child']);
@@ -17,21 +19,29 @@ describe('FirebaseApiUtils', () => {
 
     actionCreators = jasmine.createSpyObj('actionCreators', ['receiveAll']);
 
-    utils = new FirebaseApiUtils(ref, actionCreators);
+    utils = new FirebaseApiUtils(ref, actionCreators, timeout);
   });
 
-  describe('getAllQuestions', () => {
+  describe('watchQuestions', () => {
     it('fetches questions from firebase reference', () => {
-      utils.getAllQuestions();
+      utils.watchQuestions();
       expect(ref.child).toHaveBeenCalledWith('questions');
     });
 
     it('creates a receive action with messages', () => {
       snapshot.val.and.returnValue('ALL QUESTIONS');
 
-      utils.getAllQuestions();
+      utils.watchQuestions();
 
       expect(actionCreators.receiveAll).toHaveBeenCalledWith('ALL QUESTIONS');
+    });
+
+    it('ignores empty data', () => {
+      snapshot.val.and.returnValue(undefined);
+
+      utils.watchQuestions();
+
+      expect(actionCreators.receiveAll).not.toHaveBeenCalled();
     });
   });
 });
