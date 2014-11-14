@@ -38,11 +38,17 @@ class QuestonStore extends EventEmitter {
   }
 
   loadQuestions(questions) {
+    console.log(questions);
     this._questions = questions;
   }
 
   getAll() {
     return this._questions;
+  }
+
+  // TODO: implement this
+  getCurrent() {
+    return this._questions[0];
   }
 }
 

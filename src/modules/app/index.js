@@ -22,4 +22,25 @@ m.service('dispatcher', AppDispatcher);
 m.service('questionStore', QuestionStore);
 m.service('choiceStore', ChoiceStore);
 
+// Temp code to load questions
+m.run(($timeout, dispatcher) => {
+  $timeout(() => {
+    dispatcher.handleServerAction({
+      type: 'RECEIVE_QUESTIONS',
+      questions: [
+        {
+          title: 'Foo bar?',
+          choices: [
+            {text: 'A', points: 50},
+            {text: 'B', points: 30},
+            {text: 'C', points: 10},
+            {text: 'D', points: 5},
+            {text: 'E', points: 5}
+          ]
+        }
+      ]
+    });
+  });
+});
+
 export default m;
