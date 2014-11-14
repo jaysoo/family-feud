@@ -10,6 +10,7 @@ import CurrentQuestionStore from './game/CurrentQuestionStore';
 import ChoiceStore from './game/ChoiceStore';
 import TeamStore from './game/TeamStore';
 import ButtonPressStore from './game/ButtonPressStore';
+import RevealedChoiceStore from './game/RevealedChoiceStore';
 
 import AppDispatcher from './AppDispatcher';
 import FirebaseApiUtils from './FirebaseApiUtils.js';
@@ -41,6 +42,7 @@ m.service('currentQuestionStore', CurrentQuestionStore);
 m.service('choiceStore', ChoiceStore);
 m.service('teamStore', TeamStore);
 m.service('buttonPressStore', ButtonPressStore);
+m.service('revealedChoiceStore', RevealedChoiceStore);
 
 // Firebase config ------------------------------------------------------------
 m.factory('firebaseRef', (appConfig) => new Firebase(appConfig.firebaseUrl));
@@ -53,6 +55,7 @@ m.run((firebaseApiUtils) => {
   firebaseApiUtils.watchCurrentQuestion();
   firebaseApiUtils.watchCurrentQuestion();
   firebaseApiUtils.watchButtonPresses();
+  firebaseApiUtils.watchRevealedChoices();
 });
 
 export default m;

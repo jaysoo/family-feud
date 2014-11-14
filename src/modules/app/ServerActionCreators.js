@@ -32,6 +32,13 @@ class RemoteActionCreators {
       buttonPressData: buttonPressData
     });
   }
+
+  receiveRevealedChoices(revealed) {
+    this.dispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_REVEALED_CHOICES,
+      revealed: revealed
+    });
+  }
 }
 
 export default RemoteActionCreators;
