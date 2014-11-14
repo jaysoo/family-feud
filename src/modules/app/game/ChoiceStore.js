@@ -21,7 +21,6 @@ class ChoiceStore extends EventEmitter {
       var action = payload.action;
 
       switch(action.type) {
-        case ActionTypes.RECEIVE_RAW_QUESTIONS:
         case ActionTypes.RECEIVE_CURRENT_QUESTION:
           this.emitChange();
           break;
