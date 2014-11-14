@@ -6,10 +6,16 @@ import { ActionTypes } from '../constants';
 var CHANGE_EVENT = 'change';
 
 class TeamStore extends EventEmitter {
-  constructor(dispatcher) {
+  constructor(dispatcher, buttonPressStore) {
     super();
 
+    this.buttonPressStore = buttonPressStore;
+
     this.dispatchToken = dispatcher.register((payload) => {
+      dispatcher.waitFor([
+        buttonPressStore.dispatchToken
+      ]);
+
       var action = payload.action;
 
       switch(action.type) {
@@ -18,9 +24,23 @@ class TeamStore extends EventEmitter {
           this.emitChange();
           break;
 
+        case ActionTypes.RECEIVE_BUTTON_PRESS:
+          this.buttonPressed();
+          this.emitChange();
+          break;
         default:
       }
     });
+  }
+
+  buttonPressed() {
+    console.log("before set", this._teamInfo.currentTeam)
+    if (!this._teamInfo.currentTeam) {
+      var currentTeam = this.buttonPressStore.getTeamNumber();
+      console.log("current team", currentTeam)
+      this._teamInfo.currentTeam = currentTeam;
+    }
+    console.log("after set", this._teamInfo.currentTeam)
   }
 
   loadTeamInfo(teamInfo) {
@@ -29,6 +49,10 @@ class TeamStore extends EventEmitter {
 
   emitChange() {
     this.emit(CHANGE_EVENT);
+  }
+
+  currentTeam() {
+    this._teamInfo.currentTeam;
   }
 
   addChangeListener(cb) {

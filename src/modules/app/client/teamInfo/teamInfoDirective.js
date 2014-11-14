@@ -9,6 +9,11 @@ class TeamInfoCtrl {
   updateTeamInfo() {
     this.info = this.store.getInfoFor(this.number);
   }
+
+  isCurrentTeam() {
+    console.log("is current team", this.info.number, this.store.currentTeam())
+    return this.info.number == this.store.currentTeam();
+  }
 }
 
 export default {

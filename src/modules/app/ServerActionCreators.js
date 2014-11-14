@@ -25,6 +25,13 @@ class RemoteActionCreators {
       questionId: questionId
     });
   }
+
+  receiveButtonPress(buttonPressData) {
+    this.dispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_BUTTON_PRESS,
+      buttonPressData: buttonPressData
+    });
+  }
 }
 
 export default RemoteActionCreators;
