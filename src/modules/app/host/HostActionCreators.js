@@ -18,6 +18,11 @@ class HostActionCreators {
     console.log('%Selected %s', 'color:green', question.title);
     this.apiUtils.setCurrentQuestion(question);
   }
+
+  setAsRevealed(choice) {
+    console.log('%Reveal %s', 'color:green', choice.text);
+    this.apiUtils.setChoiceAsRevealed(choice);
+  }
 }
 
 export default HostActionCreators;

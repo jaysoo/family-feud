@@ -1,6 +1,11 @@
 <ul>
   <li ng-repeat="choice in choices.choices">
-    {{ choice.text }}
+    <p ng-if="choice.visible">
+      {{ choice.text }}
+    </p>
+    <p ng-if="!choice.visible">
+      ???
+    </p>
   </li>
 </ul>
 
