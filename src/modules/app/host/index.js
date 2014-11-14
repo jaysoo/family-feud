@@ -5,21 +5,29 @@ import angular from 'angular';
 import 'angular-animate';
 import 'angular-ui-router';
 
-import choices from './choices/choicesDirective';
+import ChoiceActionCreators from './ChoiceActionCreators';
+import QuestionActionCreators from './QuestionActionCreators';
 
-var m = angular.module('app.client', [
+import currentQuestionDirective from './currentQuestion/currentQuestionDirective';
+import questionSelectionDirective from './questionSelection/questionSelectionDirective';
+
+var m = angular.module('app.host', [
   'ngAnimate',
   'ui.router'
 ]);
 
 m.config(function ($stateProvider) {
   $stateProvider
-    .state('client', {
-      url: '',
-      templateUrl: 'app/client/layout.html'
+    .state('host', {
+      url: '/host',
+      templateUrl: 'app/host/layout.html'
     });
 });
 
-m.directive('choices', () => choices);
+m.service('choiceActionCreators', ChoiceActionCreators);
+m.service('questionActionCreators', QuestionActionCreators);
+
+m.directive('currentQuestion', () => currentQuestionDirective);
+m.directive('questionSelection', () => questionSelectionDirective);
 
 export default m;

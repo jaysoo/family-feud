@@ -1,0 +1,8 @@
+<h2>
+  {{ question.title() }}
+</h2>
+<div ng-repeat="choice in question.choices()">
+  <a ng-click="question.handleClick(choice)">
+    {{ choice.text }}
+  </a>
+</div>

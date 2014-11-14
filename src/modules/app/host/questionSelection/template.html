@@ -1,0 +1,12 @@
+<h2>Selection</h2>
+
+<div class="form">
+  <label>
+    Current:
+    <select
+      ng-model="selection.selected" 
+      ng-change="selection.selectQuestion(selection.selected)"
+      ng-options="question.id as question.title for question in selection.questions track by question.id">
+    </select>
+  </label>
+</div>
