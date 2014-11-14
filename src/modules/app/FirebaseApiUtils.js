@@ -104,6 +104,25 @@ class FirebaseApiUtils {
     console.log('%cReset revealed choices', 'color:blue');
     this.ref.child('revealedChoices').set(null);
   }
+
+  setWrongAnswer() {
+    this.ref.child('wrong_answer').set(true);
+    setTimeout(() => {
+      this.ref.child('wrong_answer').set(false);
+    }, 5000);
+  }
+
+  watchWrongAnswer() {
+    this.ref.child('wrong_answer').on('value', (wrongAnswer) => {
+      var answer = wrongAnswer.val();
+
+      console.log('%cReceived error', 'color:blue');
+      console.log(answer);
+
+      if (answer) {
+      }
+    });
+  }
 }
 
 export default FirebaseApiUtils;

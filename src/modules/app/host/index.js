@@ -6,9 +6,13 @@ import 'angular-animate';
 import 'angular-ui-router';
 
 import HostActionCreators from './HostActionCreators';
+import ChoiceActionCreators from './ChoiceActionCreators';
+import QuestionActionCreators from './QuestionActionCreators';
+import ErrorButtonActionCreators from './ErrorButtonActionCreators';
 
 import currentQuestionDirective from './currentQuestion/currentQuestionDirective';
 import questionSelectionDirective from './questionSelection/questionSelectionDirective';
+import errorButtonDirective from './errorButton/errorButtonDirective';
 
 var m = angular.module('app.host', [
   'ngAnimate',
@@ -24,8 +28,12 @@ m.config(function ($stateProvider) {
 });
 
 m.service('hostActionCreators', HostActionCreators);
+m.service('choiceActionCreators', ChoiceActionCreators);
+m.service('questionActionCreators', QuestionActionCreators);
+m.service('errorButtonActionCreators', ErrorButtonActionCreators);
 
 m.directive('currentQuestion', () => currentQuestionDirective);
 m.directive('questionSelection', () => questionSelectionDirective);
+m.directive('errorButton', () => errorButtonDirective);
 
 export default m;
