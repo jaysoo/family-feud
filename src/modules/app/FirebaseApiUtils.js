@@ -20,6 +20,21 @@ class FirebaseApiUtils {
     });
   }
 
+  watchTeamInfo() {
+    this.ref.child('teams').on('value', (snapshot) => {
+      var rawData = snapshot.val();
+
+      console.log('%cTeam Info', 'color:blue');
+
+      if (rawData) {
+        // Let's Angular react to the change.
+        this.timeout(() =>{
+          this.actionCreators.receiveAllTeamInfo(rawData);
+        }, 0);
+      }
+    });
+  }
+
   unwatchQuestions() {
     this.ref.child('questions').off('value');
   }
