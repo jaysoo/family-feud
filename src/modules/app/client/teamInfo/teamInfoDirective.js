@@ -1,8 +1,8 @@
 'use strict';
 
 class TeamInfoCtrl {
-  constructor(teamInfoStore) {
-    this.store = teamInfoStore;
+  constructor(teamStore) {
+    this.store = teamStore;
     this.store.addChangeListener(() => this.updateTeamInfo());
   }
 
