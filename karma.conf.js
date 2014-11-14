@@ -6,16 +6,17 @@ module.exports = function(config) {
     frameworks: ['browserify', 'jasmine'],
 
     files: [
+      './node_modules/traceur/bin/traceur-runtime.js',
       'src/modules/**/*Spec.js'
     ],
 
     preprocessors: {
-      'src/modules/**/*Spec.js': [ 'browserify' ]
+      'src/modules/**/*Spec.js': ['browserify']
     },
 
     browserify: {
       debug: true,
-      transform: [ 'brfs' ]
+      transform: ['es6ify', 'brfs']
     },
 
     reporters: ['progress'],
