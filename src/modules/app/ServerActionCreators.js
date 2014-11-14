@@ -11,6 +11,13 @@ class RemoteActionCreators {
       rawQuestions: rawQuestions
     });
   }
+
+  receiveAllTeamInfo(rawTeamInfo) {
+    this.dispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_RAW_TEAM_INFO,
+      rawTeamInfo: rawTeamInfo
+    });
+  }
 }
 
 export default RemoteActionCreators;
