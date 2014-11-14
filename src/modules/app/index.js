@@ -12,10 +12,12 @@ import FirebaseApiUtils from './FirebaseApiUtils.js';
 import ServerActionCreators from './ServerActionCreators';
 
 import client from './client';
+import host from './host';
 
 var m = angular.module('app', [
   templates.name,
-  client.name
+  client.name,
+  host.name
 ]);
 
 // Config ---------------------------------------------------------------------
