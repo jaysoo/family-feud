@@ -4,7 +4,7 @@ class FirebaseApiUtils {
     this.actionCreators = serverActionCreators;
   }
 
-  getAllMessages() {
+  getAllQuestions() {
     this.ref.child('questions').on('value', (snapshot) => {
       this.actionCreators.receiveAll(snapshot.val());
     });

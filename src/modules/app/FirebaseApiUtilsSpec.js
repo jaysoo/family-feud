@@ -20,16 +20,16 @@ describe('FirebaseApiUtils', () => {
     utils = new FirebaseApiUtils(ref, actionCreators);
   });
 
-  describe('getAllMessages', () => {
+  describe('getAllQuestions', () => {
     it('fetches questions from firebase reference', () => {
-      utils.getAllMessages();
+      utils.getAllQuestions();
       expect(ref.child).toHaveBeenCalledWith('questions');
     });
 
     it('creates a receive action with messages', () => {
       snapshot.val.and.returnValue('ALL QUESTIONS');
 
-      utils.getAllMessages();
+      utils.getAllQuestions();
 
       expect(actionCreators.receiveAll).toHaveBeenCalledWith('ALL QUESTIONS');
     });
