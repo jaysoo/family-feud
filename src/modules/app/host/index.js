@@ -5,7 +5,11 @@ import angular from 'angular';
 import 'angular-animate';
 import 'angular-ui-router';
 
+import ChoiceActionCreators from './ChoiceActionCreators';
+import QuestionActionCreators from './QuestionActionCreators';
+
 import currentQuestionDirective from './currentQuestion/currentQuestionDirective';
+import questionSelectionDirective from './questionSelection/questionSelectionDirective';
 
 var m = angular.module('app.host', [
   'ngAnimate',
@@ -20,6 +24,10 @@ m.config(function ($stateProvider) {
     });
 });
 
+m.service('choiceActionCreators', ChoiceActionCreators);
+m.service('questionActionCreators', QuestionActionCreators);
+
 m.directive('currentQuestion', () => currentQuestionDirective);
+m.directive('questionSelection', () => questionSelectionDirective);
 
 export default m;
