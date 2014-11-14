@@ -38,7 +38,6 @@ class QuestonStore extends EventEmitter {
   }
 
   loadQuestions(questions) {
-    console.log(questions);
     this._questions = questions;
   }
 
