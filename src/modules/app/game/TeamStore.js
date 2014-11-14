@@ -5,7 +5,7 @@ import { ActionTypes } from '../constants';
 
 var CHANGE_EVENT = 'change';
 
-class TeamInfoStore extends EventEmitter {
+class TeamStore extends EventEmitter {
   constructor(dispatcher) {
     super();
 
@@ -48,5 +48,5 @@ class TeamInfoStore extends EventEmitter {
   }
 }
 
-export default TeamInfoStore;
+export default TeamStore;
 

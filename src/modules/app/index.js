@@ -7,7 +7,7 @@ import templates from '../../../tmp/templates';
 
 import QuestionStore from './game/QuestionStore';
 import ChoiceStore from './game/ChoiceStore';
-import TeamInfoStore from './game/TeamInfoStore';
+import TeamStore from './game/TeamStore';
 import AppDispatcher from './AppDispatcher';
 import FirebaseApiUtils from './FirebaseApiUtils.js';
 import ServerActionCreators from './ServerActionCreators';
@@ -35,7 +35,7 @@ m.service('dispatcher', AppDispatcher);
 // Stores ---------------------------------------------------------------------
 m.service('questionStore', QuestionStore);
 m.service('choiceStore', ChoiceStore);
-m.service('teamInfoStore', TeamInfoStore);
+m.service('teamStore', TeamStore);
 
 // Firebase config ------------------------------------------------------------
 m.factory('firebaseRef', (appConfig) => new Firebase(appConfig.firebaseUrl));
