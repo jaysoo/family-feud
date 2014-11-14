@@ -1,5 +1,9 @@
 import EventEmitter from 'events';
 
+import { ActionTypes } from '../constants';
+
+var CHANGE_EVENT = 'change';
+
 class CurrentQuestionStore extends EventEmitter {
   constructor(dispatcher, questionStore) {
     super();
@@ -19,7 +23,7 @@ class CurrentQuestionStore extends EventEmitter {
           break;
 
         case ActionTypes.RECEIVE_CURRENT_QUESTION:
-          this.setCurrentQuestion(payload.questionId);
+          this.setCurrentQuestion(action.questionId);
           this.emitChange();
           break;
 
@@ -28,9 +32,21 @@ class CurrentQuestionStore extends EventEmitter {
     });
   }
 
+  emitChange() {
+    this.emit(CHANGE_EVENT);
+  }
+
+  addChangeListener(cb) {
+    this.on(CHANGE_EVENT, cb);
+  }
+
+  removeChangeListener(cb) {
+    this.off(CHANGE_EVENT, cb);
+  }
+
   setCurrentQuestion(questionId) {
     var questions = this.questionStore.getAll();
-    this._currentQuestion = questions.filter((question) => question.id === question.id)[0];
+    this._currentQuestion = questions.filter((question) => question.id === questionId)[0];
   }
 
   getCurrent() {

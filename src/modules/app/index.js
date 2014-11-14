@@ -42,9 +42,10 @@ m.service('choiceStore', ChoiceStore);
 m.factory('firebaseRef', (appConfig) => new Firebase(appConfig.firebaseUrl));
 m.service('firebaseApiUtils', FirebaseApiUtils);
 
-// Temp code to load questions
+// TODO: move this to route controller.
 m.run((firebaseApiUtils) => {
   firebaseApiUtils.watchQuestions();
+  firebaseApiUtils.watchCurrentQuestion();
 });
 
 export default m;
