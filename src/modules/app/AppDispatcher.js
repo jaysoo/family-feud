@@ -1,6 +1,8 @@
 import _ from 'lodash';
 import Flux from 'flux';
 
+import {PayloadSources} from './constants';
+
 class AppDispatcher extends Flux.Dispatcher {
   handleServerAction(action) {
     var payload = {
