@@ -3,12 +3,12 @@ import QuestionStore from './QuestionStore';
 
 describe('QuestionStore', () => {
   var dispatcher = new AppDispatcher();
-  var questions, store;
+  var rawQuestions, store;
 
   beforeEach(() => {
     store = new QuestionStore(dispatcher);
 
-    questions = [
+    rawQuestions = [
       {id: 1, name: 'Foo'},
       {id: 2, name: 'Bar'}
     ];
@@ -17,13 +17,13 @@ describe('QuestionStore', () => {
   describe('receiving questions', () => {
     it('loads all questions', (done) => {
       store.addChangeListener(() => {
-        expect(store.getAll()).toEqual(questions);
+        expect(store.getAll()).toEqual(rawQuestions);
         done();
       });
 
       dispatcher.handleServerAction({
         type: 'RECEIVE_RAW_QUESTIONS',
-        questions: questions
+        rawQuestions: rawQuestions
       });
     });
   });

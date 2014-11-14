@@ -16,7 +16,7 @@ class QuestonStore extends EventEmitter {
 
       switch(action.type) {
         case ActionTypes.RECEIVE_RAW_QUESTIONS:
-          this.loadQuestions(action.questions);
+          this.loadQuestions(action.rawQuestions);
           this.emitChange();
           break;
 

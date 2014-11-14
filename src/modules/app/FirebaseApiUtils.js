@@ -1,7 +1,7 @@
 class FirebaseApiUtils {
-  constructor(firebaseRef, remoteActionCreators) {
+  constructor(firebaseRef, serverActionCreators) {
     this.ref = firebaseRef;
-    this.actionCreators = remoteActionCreators;
+    this.actionCreators = serverActionCreators;
   }
 
   getAllMessages() {
