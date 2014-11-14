@@ -1,10 +1,10 @@
 import angular from 'angular';
 
 class QuestionSelectionCtrl {
-  constructor(questionStore, questionActionCreators) {
+  constructor(questionStore, hostActionCreators) {
     this.store = questionStore;
     this.store.addChangeListener(() => this.loadQuestions());
-    this.questionActionCreators = questionActionCreators;
+    this.hostActionCreators = hostActionCreators;
   }
 
   loadQuestions() {
@@ -13,6 +13,7 @@ class QuestionSelectionCtrl {
   }
 
   selectQuestion(question) {
+    this.hostActionCreators.selectQuestion(question);
   }
 }
 

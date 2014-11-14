@@ -6,7 +6,7 @@
     <select
       ng-model="selection.selected" 
       ng-change="selection.selectQuestion(selection.selected)"
-      ng-options="question.id as question.title for question in selection.questions track by question.id">
+      ng-options="question as question.title for question in selection.questions track by question.id">
     </select>
   </label>
 </div>
