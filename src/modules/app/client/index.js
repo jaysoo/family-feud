@@ -6,6 +6,7 @@ import 'angular-animate';
 import 'angular-ui-router';
 
 import choices from './choices/choicesDirective';
+import teamInfo from './teamInfo/teamInfoDirective';
 
 var m = angular.module('app.client', [
   'ngAnimate',
@@ -21,5 +22,6 @@ m.config(function ($stateProvider) {
 });
 
 m.directive('choices', () => choices);
+m.directive('teamInfo', () => teamInfo);
 
 export default m;
