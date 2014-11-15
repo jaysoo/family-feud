@@ -9,6 +9,7 @@ import QuestionStore from './game/QuestionStore';
 import CurrentQuestionStore from './game/CurrentQuestionStore';
 import ChoiceStore from './game/ChoiceStore';
 import TeamStore from './game/TeamStore';
+import ButtonPressStore from './game/ButtonPressStore';
 
 import AppDispatcher from './AppDispatcher';
 import FirebaseApiUtils from './FirebaseApiUtils.js';
@@ -39,6 +40,7 @@ m.service('questionStore', QuestionStore);
 m.service('currentQuestionStore', CurrentQuestionStore);
 m.service('choiceStore', ChoiceStore);
 m.service('teamStore', TeamStore);
+m.service('buttonPressStore', ButtonPressStore);
 
 // Firebase config ------------------------------------------------------------
 m.factory('firebaseRef', (appConfig) => new Firebase(appConfig.firebaseUrl));
@@ -49,6 +51,8 @@ m.run((firebaseApiUtils) => {
   firebaseApiUtils.watchQuestions();
   firebaseApiUtils.watchTeamInfo();
   firebaseApiUtils.watchCurrentQuestion();
+  firebaseApiUtils.watchCurrentQuestion();
+  firebaseApiUtils.watchButtonPresses();
 });
 
 export default m;

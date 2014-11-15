@@ -35,6 +35,21 @@ class FirebaseApiUtils {
     });
   }
 
+  watchButtonPresses() {
+    this.ref.child('buttonIO').on('value', (snapshot) => {
+      var rawData = snapshot.val();
+
+      console.log('%cButton Pressed', 'color:blue');
+
+      if (rawData) {
+        // Let's Angular react to the change.
+        this.timeout(() =>{
+          this.actionCreators.receiveButtonPress(rawData);
+        }, 0);
+      }
+    });
+  }
+
   unwatchQuestions() {
     this.ref.child('questions').off('value');
   }
