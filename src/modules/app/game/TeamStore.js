@@ -34,13 +34,10 @@ class TeamStore extends EventEmitter {
   }
 
   buttonPressed() {
-    console.log("before set", this._teamInfo.currentTeam)
     if (!this._teamInfo.currentTeam) {
       var currentTeam = this.buttonPressStore.getTeamNumber();
-      console.log("current team", currentTeam)
       this._teamInfo.currentTeam = currentTeam;
     }
-    console.log("after set", this._teamInfo.currentTeam)
   }
 
   loadTeamInfo(teamInfo) {
@@ -52,7 +49,7 @@ class TeamStore extends EventEmitter {
   }
 
   currentTeam() {
-    this._teamInfo.currentTeam;
+    return this._teamInfo.currentTeam;
   }
 
   addChangeListener(cb) {

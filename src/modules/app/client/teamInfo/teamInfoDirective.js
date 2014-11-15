@@ -11,8 +11,9 @@ class TeamInfoCtrl {
   }
 
   isCurrentTeam() {
-    console.log("is current team", this.info.number, this.store.currentTeam())
-    return this.info.number == this.store.currentTeam();
+    if (this.info) {
+      return this.info.number == this.store.currentTeam();
+    }
   }
 }
 
