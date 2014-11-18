@@ -17,7 +17,7 @@ class ChoicesCtrl {
         text: choice.text,
         points: choice.points,
         visible: this.revealedStore.isRevealed(choice)
-      }
+      };
     });
   }
 }
