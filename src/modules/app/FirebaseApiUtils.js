@@ -77,6 +77,33 @@ class FirebaseApiUtils {
     console.log('%cSet current question %s', 'color:blue', question.title);
     this.ref.child('currentQuestion').set(question.id);
   }
+
+  watchRevealedChoices() {
+    this.ref.child('revealedChoices').on('value', (snapshot) => {
+      var data = snapshot.val();
+
+      console.log('%cReceived revealed choices', 'color:blue');
+
+      // Let's Angular react to the change.
+      this.timeout(() =>{
+        this.actionCreators.receiveRevealedChoices(data);
+      }, 0);
+    });
+  }
+
+  unwatchRevealedChoices() {
+    this.ref.child('revealedChoices').off('value');
+  }
+
+  setChoiceAsRevealed(choice) {
+    console.log('%cSet as revealed %s', 'color:blue', choice.text);
+    this.ref.child('revealedChoices').child(choice.id).set(true);
+  }
+
+  resetRevealedChoices() {
+    console.log('%cReset revealed choices', 'color:blue');
+    this.ref.child('revealedChoices').set(null);
+  }
 }
 
 export default FirebaseApiUtils;

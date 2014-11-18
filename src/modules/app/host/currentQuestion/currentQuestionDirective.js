@@ -28,7 +28,11 @@ class CurrentQuestionCtrl {
 
   handleClick(choice) {
     console.log("%cClicked on %s", "color:darkorange", choice.text);
-    this.hostActionCreators.clickChoice(choice);
+    this.hostActionCreators.setAsRevealed(choice);
+  }
+
+  reset() {
+    this.hostActionCreators.resetRevealedChoices();
   }
 }
 
