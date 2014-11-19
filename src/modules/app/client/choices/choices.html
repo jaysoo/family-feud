@@ -1,10 +1,17 @@
-<ul>
-  <li ng-repeat="choice in choices.choices">
-    <p ng-if="choice.visible">
-      {{ choice.text }}
-    </p>
-    <p ng-if="!choice.visible">
-      ???
-    </p>
-  </li>
-</ul>
+<div class="choices">
+  <div class="choice" ng-repeat="choice in choices.choices track by choice.id">
+    <div class="choice__content" ng-class="{'choice__content--revealed': choice.visible}">
+      <div class="choice__content__front">
+        <span class="choice__points">
+          X
+        </span>
+      </div>
+      <div class="choice__content__back">
+        <span class="choice__points">
+          {{ choice.points }}
+        </span>
+        {{ choice.text }}
+      </div>
+    </div>
+  </div>
+</div>

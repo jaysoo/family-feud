@@ -12,7 +12,7 @@ global.config = {
       images: SRC_FOLDER + '/assets/images/**/*',
       scripts: SRC_FOLDER + '/modules/**/*.js',
       styles: SRC_FOLDER + '/styles/app.scss',
-      stylesGlob: SRC_FOLDER + '/styles/**/*.scss',
+      stylesGlob: SRC_FOLDER + '/styles/**/*.{scss,css}',
       templates: SRC_FOLDER + '/modules/**/*.html',
       templatesHTML: SRC_FOLDER + '/modules/**/*.html',
       templatesCompiled: TMP_FOLDER,

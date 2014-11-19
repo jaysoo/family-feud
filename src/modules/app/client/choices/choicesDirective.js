@@ -14,6 +14,7 @@ class ChoicesCtrl {
 
     this.choices = choices.map((choice) => {
       return {
+        id: choice.id,
         text: choice.text,
         points: choice.points,
         visible: this.revealedStore.isRevealed(choice)
