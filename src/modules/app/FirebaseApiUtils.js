@@ -106,10 +106,7 @@ class FirebaseApiUtils {
   }
 
   setWrongAnswer() {
-    this.ref.child('wrong_answer').set(true);
-    setTimeout(() => {
-      this.ref.child('wrong_answer').set(false);
-    }, 5000);
+    this.ref.child('wrong_answer').set(Date.now().toLocaleString());
   }
 
   watchWrongAnswer() {
