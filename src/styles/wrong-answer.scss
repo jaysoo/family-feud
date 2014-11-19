@@ -2,15 +2,15 @@
 
 .wrong-answer {
   color: $red;
-  border: 3px solid $red;
+  border: 40px solid $red;
   position: absolute;
-  font-size: 400px;
-  line-height: 400px;
-  height: 400px;
-  width: 400px;
+  font-size: 80vh;
+  line-height: 80vh;
+  height: 80vh;
+  width: 80vh;
   text-align: center;
-  margin-top: -200px;
-  margin-left: -200px;
+  margin-top: -40vh;
+  margin-left: -40vh;
   top: 50%;
   left: 50%;
 }
