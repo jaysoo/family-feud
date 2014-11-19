@@ -1,5 +1,4 @@
-<div>
-  <h2>Team {{teamInfo.number}}</h2>
+<div class="team" ng-class="{'team--active': teamInfo.isCurrentTeam()}">
   {{teamInfo.info.name}}
-  <span ng-show="teamInfo.isCurrentTeam()">Active!</span>
 </div>
+
