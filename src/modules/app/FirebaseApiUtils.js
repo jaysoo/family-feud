@@ -116,8 +116,7 @@ class FirebaseApiUtils {
       console.log('%cReceived error', 'color:blue');
       console.log(answer);
 
-      if (answer) {
-      }
+      this.actionCreators.receiveWrongAnswer();
     });
   }
 }

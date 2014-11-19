@@ -6,8 +6,6 @@ import 'angular-animate';
 import 'angular-ui-router';
 
 import HostActionCreators from './HostActionCreators';
-import ChoiceActionCreators from './ChoiceActionCreators';
-import QuestionActionCreators from './QuestionActionCreators';
 import ErrorButtonActionCreators from './ErrorButtonActionCreators';
 
 import currentQuestionDirective from './currentQuestion/currentQuestionDirective';
@@ -28,8 +26,6 @@ m.config(function ($stateProvider) {
 });
 
 m.service('hostActionCreators', HostActionCreators);
-m.service('choiceActionCreators', ChoiceActionCreators);
-m.service('questionActionCreators', QuestionActionCreators);
 m.service('errorButtonActionCreators', ErrorButtonActionCreators);
 
 m.directive('currentQuestion', () => currentQuestionDirective);
