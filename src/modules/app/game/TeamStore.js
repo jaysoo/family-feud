@@ -28,9 +28,19 @@ class TeamStore extends EventEmitter {
           this.buttonPressed();
           this.emitChange();
           break;
+
+        case ActionTypes.RECEIVE_BUTTONS_CLEARED:
+          this.clearCurrentTeam();
+          this.emitChange();
+          break;
+
         default:
       }
     });
+  }
+
+  clearCurrentTeam() {
+    this._teamInfo.currentTeam = undefined;
   }
 
   buttonPressed() {

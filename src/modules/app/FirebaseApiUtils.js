@@ -46,6 +46,10 @@ class FirebaseApiUtils {
         this.timeout(() =>{
           this.actionCreators.receiveButtonPress(rawData);
         }, 0);
+      } else {
+        this.timeout(() =>{
+          this.actionCreators.buttonsCleared();
+        }, 0);
       }
     });
   }
@@ -103,6 +107,11 @@ class FirebaseApiUtils {
   resetRevealedChoices() {
     console.log('%cReset revealed choices', 'color:blue');
     this.ref.child('revealedChoices').set(null);
+  }
+
+  resetButtons() {
+    console.log('%cReset buttons', 'color:blue');
+    this.ref.child('buttonIO/buttonId').set(null);
   }
 }
 
