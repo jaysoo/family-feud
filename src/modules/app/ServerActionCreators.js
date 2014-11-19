@@ -33,6 +33,12 @@ class RemoteActionCreators {
     });
   }
 
+  buttonsCleared() {
+    this.dispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_BUTTONS_CLEARED
+    });
+  }
+
   receiveRevealedChoices(revealed) {
     this.dispatcher.handleServerAction({
       type: ActionTypes.RECEIVE_REVEALED_CHOICES,

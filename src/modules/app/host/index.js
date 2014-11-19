@@ -9,6 +9,7 @@ import HostActionCreators from './HostActionCreators';
 
 import currentQuestionDirective from './currentQuestion/currentQuestionDirective';
 import questionSelectionDirective from './questionSelection/questionSelectionDirective';
+import resetButtonDirective from './resetButton/resetButtonDirective';
 
 var m = angular.module('app.host', [
   'ngAnimate',
@@ -27,5 +28,6 @@ m.service('hostActionCreators', HostActionCreators);
 
 m.directive('currentQuestion', () => currentQuestionDirective);
 m.directive('questionSelection', () => questionSelectionDirective);
+m.directive('resetButton', () => resetButtonDirective);
 
 export default m;
