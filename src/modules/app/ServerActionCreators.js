@@ -45,6 +45,12 @@ class RemoteActionCreators {
       revealed: revealed
     });
   }
+
+  receiveWrongAnswer() {
+    this.dispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_WRONG_ANSWER
+    });
+  }
 }
 
 export default RemoteActionCreators;

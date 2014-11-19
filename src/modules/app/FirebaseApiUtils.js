@@ -113,6 +113,23 @@ class FirebaseApiUtils {
     console.log('%cReset buttons', 'color:blue');
     this.ref.child('buttonIO/buttonId').set(null);
   }
+
+  setWrongAnswer() {
+    this.ref.child('wrong_answer').set(Date.now().toLocaleString());
+  }
+
+  watchWrongAnswer() {
+    this.ref.child('wrong_answer').on('value', (wrongAnswer) => {
+      var answer = wrongAnswer.val();
+
+      console.log('%cReceived error', 'color:blue');
+      console.log(answer);
+
+      this.timeout(() =>{
+        this.actionCreators.receiveWrongAnswer();
+      }, 0);
+    });
+  }
 }
 
 export default FirebaseApiUtils;
