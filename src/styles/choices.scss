@@ -1,0 +1,62 @@
+@import "variables";
+
+.choices {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.choice {
+  width: 50%;
+  padding: 5px;
+}
+
+.choice__content {
+  perspective: 1000;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  position: relative;
+
+  height: 60px;
+}
+
+.choice__content--revealed {
+  transform: rotatex(180deg);
+}
+
+@mixin face {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  backface-visibility: hidden;
+
+  padding: 5px 15px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+
+  font-size: 36px;
+  height: 60px;
+
+}
+
+.choice__content__front {
+  @include face;
+
+  transform: rotatex(0deg);
+  z-index: 2;
+  background-color: $darkbrown;
+}
+
+.choice__content__back {
+  @include face;
+
+  transform: rotatex(-180deg);
+  background-color: $red;
+}
+
+.choice__points {
+  font-weight: bold;
+  width: 40px;
+  float: right;
+  text-align: right;
+}

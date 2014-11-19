@@ -1,0 +1,12 @@
+@import "variables";
+
+* {
+  box-sizing:  border-box;
+}
+
+html, body {
+  padding: 20px;
+  background-color: $lightbrown;
+  color: #fff;
+}
+
