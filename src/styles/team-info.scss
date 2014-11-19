@@ -28,13 +28,13 @@ team-info:nth-child(odd) {
 }
 
 .team--active{
-  transform: scale(1.1) translatex(-15px);
+  transform: scale(1.3) translatex(-70px);
   text-shadow: 0 2px 5px rgba(0,0,0,0.4);
   color: $red;
 }
 
 team-info:nth-child(even) {
   .team--active{
-    transform: scale(1.1) translatex(15px);
+    transform: scale(1.3) translatex(70px);
   }
 }
