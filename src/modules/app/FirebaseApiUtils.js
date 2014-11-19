@@ -41,7 +41,7 @@ class FirebaseApiUtils {
 
       console.log('%cButton Pressed', 'color:blue');
 
-      if (rawData) {
+      if (rawData.buttonId) {
         // Let's Angular react to the change.
         this.timeout(() =>{
           this.actionCreators.receiveButtonPress(rawData);
