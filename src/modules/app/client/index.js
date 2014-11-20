@@ -8,6 +8,7 @@ import 'angular-ui-router';
 import choices from './choices/choicesDirective';
 import teamInfo from './teamInfo/teamInfoDirective';
 import wrongAnswer from './wrongAnswer/wrongAnswerDirective';
+import gameSounds from './gameSounds/gameSoundsDirective';
 
 var m = angular.module('app.client', [
   'ngAnimate',
@@ -24,6 +25,6 @@ m.config(function ($stateProvider) {
 
 m.directive('choices', () => choices);
 m.directive('teamInfo', () => teamInfo);
-m.directive('wrongAnswer', () => wrongAnswer);
+m.directive('gameSounds', () => gameSounds);
 
 export default m;

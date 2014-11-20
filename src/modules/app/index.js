@@ -11,6 +11,7 @@ import ChoiceStore from './game/ChoiceStore';
 import TeamStore from './game/TeamStore';
 import ButtonPressStore from './game/ButtonPressStore';
 import RevealedChoiceStore from './game/RevealedChoiceStore';
+import GameSoundStore from './game/GameSoundStore';
 
 import ErrorButtonStore from './game/ErrorButtonStore';
 import AppDispatcher from './AppDispatcher';
@@ -45,6 +46,7 @@ m.service('teamStore', TeamStore);
 m.service('buttonPressStore', ButtonPressStore);
 m.service('revealedChoiceStore', RevealedChoiceStore);
 m.service('errorButtonStore', ErrorButtonStore);
+m.service('gameSoundStore', GameSoundStore);
 
 // Firebase config ------------------------------------------------------------
 m.factory('firebaseRef', (appConfig) => new Firebase(appConfig.firebaseUrl));

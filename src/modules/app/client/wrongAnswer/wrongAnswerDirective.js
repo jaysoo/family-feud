@@ -3,14 +3,12 @@
 import _ from 'lodash';
 
 class WrongAnswerCtrl {
-  constructor(errorButtonStore, $timeout, $element) {
+  constructor(errorButtonStore, $timeout) {
     this.store = errorButtonStore;
     this.store.addChangeListener(() => this.showWrongAnswer());
     this.wrongAnswerValue = false;
     this.timeout = $timeout;
     this.initialized = false;
-
-    this.audioPlayer = $element.find("audio")[0];
   }
 
   showWrongAnswer() {
@@ -18,7 +16,6 @@ class WrongAnswerCtrl {
     if (this.initialized) {
       console.log("init");
       this.wrongAnswerValue = true;
-      this.audioPlayer.play();
       this.timeout(() => {this.wrongAnswerValue = false;}, 3000);
     } else {
       console.log("not init");
