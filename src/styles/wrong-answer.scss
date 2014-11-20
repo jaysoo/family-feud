@@ -1,8 +1,8 @@
 @import "variables";
 
 .wrong-answer {
-  color: $red;
-  border: 40px solid $red;
+  color: red;
+  border: 40px solid red;
   position: absolute;
   font-size: 80vh;
   line-height: 80vh;
@@ -13,4 +13,5 @@
   margin-left: -40vh;
   top: 50%;
   left: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
 }

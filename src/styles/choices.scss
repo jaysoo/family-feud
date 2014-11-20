@@ -2,7 +2,7 @@
 
 .choices {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
 }
 
 .choice {
@@ -59,4 +59,9 @@
   width: 100px;
   float: right;
   text-align: right;
+}
+
+.choice__number {
+  float: left;
+  width: 100px;
 }

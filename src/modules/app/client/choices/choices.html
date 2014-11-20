@@ -2,11 +2,17 @@
   <div class="choice" ng-repeat="choice in choices.choices track by choice.id">
     <div class="choice__content" ng-class="{'choice__content--revealed': choice.visible}">
       <div class="choice__content__front">
+        <div class="choice__number">
+          {{ $index + 1 }}
+        </div>
         <span class="choice__points">
           X
         </span>
       </div>
       <div class="choice__content__back">
+        <div class="choice__number">
+          {{ $index + 1 }}
+        </div>
         <span class="choice__points">
           {{ choice.points }}
         </span>
