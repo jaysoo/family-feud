@@ -6,17 +6,28 @@ class GameSoundsCtrl {
   constructor(gameSoundStore, $timeout, $element) {
     this.store = gameSoundStore;
     this.store.addWrongAnswerListener(() => this.soundWrongAnswer());
+    this.store.addCorrectAnswerListener(() => this.soundCorrectAnswer());
     this.timeout = $timeout;
-    this.initialized = false;
+    this.wrongAnswerInitialized = false;
+    this.correctAnswerInitialized = false;
 
-    this.audioPlayer = $element.find("audio")[0];
+    this.wrongAnswerPlayer = $element.find("audio")[0];
+    this.correctAnswerPlayer = $element.find("audio")[1];
   }
 
   soundWrongAnswer() {
-    if (this.initialized) {
-      this.audioPlayer.play();
+    if (this.wrongAnswerInitialized) {
+      this.wrongAnswerPlayer.play();
     } else {
-      this.initialized = true;
+      this.wrongAnswerInitialized = true;
+    }
+  }
+
+  soundCorrectAnswer() {
+    if (this.correctAnswerInitialized) {
+      this.correctAnswerPlayer.play();
+    } else {
+      this.correctAnswerInitialized = true;
     }
   }
 }
