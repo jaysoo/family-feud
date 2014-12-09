@@ -22,7 +22,6 @@ module.exports = gulp.task('styles', function () {
         global.BOWER_FOLDER + '/fontawesome/scss'
       ]
     }))
-    .pipe(gulpif(release, csso()))
     .pipe(gulpif(release, rename(config.filenames.release.styles), rename(config.filenames.build.styles)))
     .pipe(gulpif(release, gulp.dest(config.paths.dest.release.styles), gulp.dest(config.paths.dest.build.styles)));
 });
