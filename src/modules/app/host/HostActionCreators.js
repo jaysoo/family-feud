@@ -16,7 +16,12 @@ class HostActionCreators {
 
   selectQuestion(question) {
     console.log('%cSelected %s', 'color:green', question.title);
-    this.apiUtils.setCurrentQuestion(question);
+    this.apiUtils.setCurrentQuestion(question.id);
+  }
+
+  selectQuestionById(questionId) {
+    console.log('%cSelected %s', 'color:green', questionId);
+    this.apiUtils.setCurrentQuestion(Number(questionId));
   }
 
   setAsRevealed(choice) {
