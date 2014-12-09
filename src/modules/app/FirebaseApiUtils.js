@@ -130,6 +130,23 @@ class FirebaseApiUtils {
       }, 0);
     });
   }
+
+  watchScores() {
+    this.ref.child('scores').on('value', (snapshot) => {
+      var scores = snapshot.val();
+
+      console.log('%cReceived scores', 'color:blue');
+      console.log(scores);
+
+      this.timeout(() =>{
+        this.actionCreators.receiveScores(scores);
+      }, 0);
+    });
+  }
+
+  setScores(scores) {
+    this.ref.child('scores').set(scores);
+  }
 }
 
 export default FirebaseApiUtils;

@@ -1,3 +1,5 @@
 <div class="team" ng-class="{'team--active': teamInfo.isCurrentTeam()}">
-  {{teamInfo.info.name}}
+  <span class="team--name">{{teamInfo.info.name}}</span>
 </div>
+
+<div class="team--score">{{teamInfo.score}}</div>

@@ -38,6 +38,10 @@ class HostActionCreators {
     console.log('%cResetting buttons', 'color:green');
     this.apiUtils.resetButtons();
   }
+
+  updateScores(scores) {
+    this.apiUtils.setScores(scores);
+  }
 }
 
 export default HostActionCreators;

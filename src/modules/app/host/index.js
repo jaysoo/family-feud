@@ -12,6 +12,7 @@ import currentQuestionDirective from './currentQuestion/currentQuestionDirective
 import questionSelectionDirective from './questionSelection/questionSelectionDirective';
 import resetButtonDirective from './resetButton/resetButtonDirective';
 import errorButtonDirective from './errorButton/errorButtonDirective';
+import scorePanelDirective from './scorePanel/scorePanelDirective';
 
 var m = angular.module('app.host', [
   'ngAnimate',
@@ -33,5 +34,6 @@ m.directive('currentQuestion', () => currentQuestionDirective);
 m.directive('questionSelection', () => questionSelectionDirective);
 m.directive('resetButton', () => resetButtonDirective);
 m.directive('errorButton', () => errorButtonDirective);
+m.directive('scorePanel', () => scorePanelDirective);
 
 export default m;

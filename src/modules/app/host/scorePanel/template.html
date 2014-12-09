@@ -1,0 +1,10 @@
+<h2>Scores</h2>
+
+<form ng-click="scores.updateScores()">
+  <div ng-repeat="team in scores.teams">
+    {{ team.name }}
+    <input type="number" ng-model="scores.scores[team.number]" />
+  </div>
+
+  <button>Update</button>
+</form>

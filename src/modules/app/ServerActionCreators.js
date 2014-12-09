@@ -51,6 +51,13 @@ class RemoteActionCreators {
       type: ActionTypes.RECEIVE_WRONG_ANSWER
     });
   }
+
+  receiveScores(scores) {
+    this.dispatcher.handleServerAction({
+      type: ActionTypes.RECEIVE_RAW_SCORES,
+      scores: scores
+    });
+  }
 }
 
 export default RemoteActionCreators;

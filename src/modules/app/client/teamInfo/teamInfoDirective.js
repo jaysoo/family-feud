@@ -1,13 +1,17 @@
 'use strict';
 
 class TeamInfoCtrl {
-  constructor(teamStore) {
+  constructor(teamStore, scoreStore) {
     this.store = teamStore;
     this.store.addChangeListener(() => this.updateTeamInfo());
+
+    this.scoreStore = scoreStore;
+    this.scoreStore.addChangeListener(() => this.updateTeamInfo());
   }
 
   updateTeamInfo() {
     this.info = this.store.getInfoFor(this.number);
+    this.score = this.scoreStore.getScoreFor(this.number);
   }
 
   isCurrentTeam() {
