@@ -9,4 +9,6 @@
       ng-options="question as question.title for question in selection.questions track by question.id">
     </select>
   </label>
+  <input ng-model="selection.questionToLoad"></input>
+  <button ng-click="selection.selectQuestionById(selection.questionToLoad)">Change it!</button>
 </div>

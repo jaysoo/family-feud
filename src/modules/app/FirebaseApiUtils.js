@@ -77,9 +77,9 @@ class FirebaseApiUtils {
     this.ref.child('currentQuestion').off('value');
   }
 
-  setCurrentQuestion(question) {
-    console.log('%cSet current question %s', 'color:blue', question.title);
-    this.ref.child('currentQuestion').set(question.id);
+  setCurrentQuestion(questionId) {
+    console.log('%cSet current question %s', 'color:blue', questionId);
+    this.ref.child('currentQuestion').set(questionId);
   }
 
   watchRevealedChoices() {

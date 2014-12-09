@@ -5,6 +5,7 @@ class QuestionSelectionCtrl {
     this.store = questionStore;
     this.store.addChangeListener(() => this.loadQuestions());
     this.hostActionCreators = hostActionCreators;
+    this.questionToLoad;
   }
 
   loadQuestions() {
@@ -14,6 +15,10 @@ class QuestionSelectionCtrl {
 
   selectQuestion(question) {
     this.hostActionCreators.selectQuestion(question);
+  }
+
+  selectQuestionById(questionId) {
+    this.hostActionCreators.selectQuestionById(questionId);
   }
 }
 
