@@ -3,8 +3,6 @@
 import angular from 'angular';
 import Firebase from 'firebase';
 
-import templates from '../../../tmp/templates';
-
 import QuestionStore from './game/QuestionStore';
 import CurrentQuestionStore from './game/CurrentQuestionStore';
 import ChoiceStore from './game/ChoiceStore';
@@ -22,7 +20,6 @@ import client from './client';
 import host from './host';
 
 var m = angular.module('app', [
-  templates.name,
   client.name,
   host.name
 ]);
