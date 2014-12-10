@@ -18,10 +18,12 @@ import ServerActionCreators from './ServerActionCreators';
 
 import client from './client';
 import host from './host';
+import buzzer from './buzzer';
 
 var m = angular.module('app', [
   client.name,
-  host.name
+  host.name,
+  buzzer.name
 ]);
 
 // Config ---------------------------------------------------------------------
