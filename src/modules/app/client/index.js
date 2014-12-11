@@ -26,5 +26,6 @@ m.config(function ($stateProvider) {
 m.directive('choices', () => choices);
 m.directive('teamInfo', () => teamInfo);
 m.directive('gameSounds', () => gameSounds);
+m.directive('wrongAnswer', () => wrongAnswer);
 
 export default m;
