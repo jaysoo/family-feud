@@ -9,7 +9,7 @@ import teamInfo from '../client/teamInfo/teamInfoDirective';
 import wrongAnswer from '../client/wrongAnswer/wrongAnswerDirective';
 import gameSounds from '../client/gameSounds/gameSoundsDirective';
 
-var m = angular.module('app.client', [
+var m = angular.module('app.buzzer', [
   'ngAnimate',
   'ui.router'
 ]);
@@ -22,7 +22,7 @@ m.config(function ($stateProvider) {
     });
 });
 
-m.directive('teamInfo', () => teamInfo);
-m.directive('gameSounds', () => gameSounds);
+//m.directive('teamInfo', () => teamInfo);
+//m.directive('gameSounds', () => gameSounds);
 
 export default m;
