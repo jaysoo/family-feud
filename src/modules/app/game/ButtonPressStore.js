@@ -18,6 +18,11 @@ class ButtonPressStore extends EventEmitter {
           this.emitChange();
           break;
 
+        case ActionTypes.RECEIVE_BUTTONS_CLEARED:
+          this.clear();
+          this.emitChange();
+          break;
+
         default:
       }
     });
@@ -40,7 +45,13 @@ class ButtonPressStore extends EventEmitter {
   }
 
   getTeamNumber() {
-    return this._buttonPressData.buttonId;
+    if (this._buttonPressData) {
+      return this._buttonPressData.buttonId;
+    }
+  }
+
+  clear() {
+    return this._buttonPressData = null;
   }
 }
 
